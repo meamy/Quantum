@@ -8,6 +8,7 @@
     <None Include="AdderGen.fsx">
       <Generator>F# compiler</Generator>
     </None>
+    <None Include="README.md" />
   </ItemGroup>
 
   <ItemGroup>
