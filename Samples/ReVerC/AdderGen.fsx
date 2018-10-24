@@ -2,6 +2,11 @@ open System.IO
 open System
 open ReVerC
 
+///////////////////////////////////////////////
+// Example classical function                //
+///////////////////////////////////////////////
+
+/// Performs integer addition of two little-endian Boolean arrays
 let carryRippleAdder n =
     <@
     fun (a : bool array) (b : bool array) ->
@@ -17,5 +22,10 @@ let carryRippleAdder n =
       result           
     @>
 
+/// Compiles a 2-bit adder (compile (carryRippleAdder 2)) and outputs the
+/// circuit in Q# format with the operation name "adder" to the file "adder.qs".
+///
+/// By convention, a function with type "a -> ... -> b -> c" is compiled to an
+/// operation with of type "a -> ... -> b -> c -> ()".
 File.WriteAllText("adder.qs", printQSharp "adder" <| compile (carryRippleAdder 2) false Eager)
 0
